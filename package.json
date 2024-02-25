@@ -13,10 +13,16 @@
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+    "accept-language": "^3.0.18",
     "framer-motion": "^11.0.5",
+    "i18next": "^23.9.0",
+    "i18next-browser-languagedetector": "^7.2.0",
+    "i18next-resources-to-backend": "^1.2.0",
     "next": "14.1.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-cookie": "^7.1.0",
+    "react-dom": "^18",
+    "react-i18next": "^14.0.5"
   },
   "devDependencies": {
     "@types/node": "^20",

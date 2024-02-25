@@ -1,0 +1,9 @@
+{
+  "navigation": {
+    "blog": "Blog",
+    "about": "O nás",
+    "contact": "Kontakt",
+    "home": "Domů"  
+  },
+  "back-to-home": "Zpět na domovskou stránku"
+}

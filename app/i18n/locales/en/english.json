@@ -1,0 +1,9 @@
+{
+  "navigation": {
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact",
+    "home": "Home"
+  },
+  "back-to-home": "Back to home"
+}
