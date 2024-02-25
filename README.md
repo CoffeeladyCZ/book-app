@@ -1,4 +1,13 @@
-This is a book app.
+This is a community book app.
+
+## Tech stack
+
+Next.js, ChakraUI, TypeScript
+
+## Future features
+
+- List with book news
+- Book detail with information
 
 ## Getting Started
 
