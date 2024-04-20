@@ -1,0 +1,12 @@
+{
+  "navigation": {
+    "languageSwitcher": "Přepni z <1>{{lng}}</1> do: ",
+    "headTitle": "Knižní appka",
+    "books": "Moje knihy",
+    "home": "Domů"
+  },
+  "book":{
+    "backToHome": "Zpět na hlavní stránku",
+    "title": "Knihy"
+  }
+}

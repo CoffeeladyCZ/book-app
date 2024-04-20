@@ -1,0 +1,17 @@
+{
+  "page": {
+    "title": "About",
+    "description": "This is the about page"
+  },
+  "languageSwitcher": "Switch from <1>{{lng}}</1> to: ",
+  "navigation": {
+    "languageSwitcher": "Switch from <1>{{lng}}</1> to: ",
+    "headTitle": "Book app",
+    "books": "My Books",
+    "home": "Home"
+  },
+  "book": {
+    "backToHome": "Back to Home",
+    "title": "Books"
+  }
+}
