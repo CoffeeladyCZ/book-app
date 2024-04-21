@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Button,
   ButtonGroup,
@@ -11,7 +13,11 @@ import {
   Image
 } from "@chakra-ui/react";
 
+import { useI18n } from "../../../locales/client";
+
  export const BookCard = () => {
+  const t = useI18n();
+
   return (
     <Card maxW='sm'>
       <CardBody>
@@ -33,7 +39,7 @@ import {
       <CardFooter>
         <ButtonGroup spacing='2'>
           <Button variant='solid' colorScheme='blue'>
-            Read more
+            { t('book.readMore') }
           </Button>
         </ButtonGroup>
       </CardFooter>

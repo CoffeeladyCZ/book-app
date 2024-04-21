@@ -1,5 +1,6 @@
 import BookList from "./components/BookList";
 import PageLayout from "./components/PageLayout";
+import { getI18n, getCurrentLocale } from '../../locales/server';
 
 interface PageProps {
   params: {
@@ -8,6 +9,9 @@ interface PageProps {
 }
 
 const Page = async ({ params: { locale }}: PageProps) => {
+  const t = await getI18n();
+  const currentLocale = getCurrentLocale();
+
   return (
     <PageLayout params={{ locale }}>
       <BookList />

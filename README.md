@@ -2,7 +2,8 @@ This is a community book app.
 
 ## Tech stack
 
-Next.js, ChakraUI, TypeScript
+- Next.js, ChakraUI, TypeScript
+- next-international
 
 ## Future features
 

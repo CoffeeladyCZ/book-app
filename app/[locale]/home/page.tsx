@@ -1,9 +1,11 @@
 import React from 'react';
 import NextLink from 'next/link';
 
-import { Box, Button, Flex, HStack, Heading, Link, Spacer } from '@chakra-ui/react';
-
 import { BookCard } from '../components/BookCard';
+import { Box, Button, Flex, HStack, Heading, Link, Spacer } from '@chakra-ui/react';
+import { getI18n } from '../../../locales/server';
+import { setStaticParamsLocale } from 'next-international/server';
+
 import PageLayout from '../components/PageLayout';
 
 interface CommonLayoutProps {
@@ -13,17 +15,19 @@ interface CommonLayoutProps {
 }
 
 const Page: React.FC<CommonLayoutProps> = async ({ params: { locale } }) => {
+  setStaticParamsLocale(locale)
+  const t = await getI18n();
 
   return (
     <PageLayout params={{locale}}>
       <Flex px={6}>
         <Heading as='h1' size='xl' mb={4}>
-          Book App
+          { t('home.title')}
         </Heading>
         <Spacer />
         <Link as={NextLink} href={`/${locale}`}>
           <Button variant="link" colorScheme="pink">
-            Back to homepage
+            { t('home.backToHome') }
           </Button>
         </Link>
       </Flex>
