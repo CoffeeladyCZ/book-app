@@ -5,6 +5,12 @@ export default {
     "title": "Books",
     "readMore": "Read More"
   },
+  "bookCard": {
+    "read": "Read books",
+    "more": "More books",
+    "currentlyReading": "Currently reading",
+    "wantRead": "Want to read",
+  },
   "home": {
     "backToHome": "Back to Home",
     "title": "Home",

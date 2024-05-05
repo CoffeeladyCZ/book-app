@@ -5,6 +5,12 @@ export default {
     "title": "Moje knihy",
     "readMore": "Číst více"
   },
+  "bookCard": {
+    "read": "Přečtené knihy",
+    "more": "Více knih",
+    "currentlyReading": "Momentálně čtu",
+    "wantRead": "Chci si přečíst",
+  },
   "home": {
     "backToHome": "Zpět na hlavní stránku",
     "title": "Home",
