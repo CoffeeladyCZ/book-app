@@ -1,11 +1,14 @@
 'use client';
 
-import { FC } from "react";
-import { Button, Heading, Grid, GridItem } from "@chakra-ui/react";
+import { FC, useMemo } from "react";
+import { Button, Heading, Grid, GridItem, Link } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
+import NextLink from 'next/link';
 
 import { useI18n } from "../../../locales/client";
 import BookSectionCard from "./BookSectionCard";
+import { transformTitle } from '../../../utils/params';
+import { SectionBookEnum } from '../../../enums';
 
 interface BookItem {
   title: string;
@@ -17,17 +20,35 @@ interface BookItem {
 interface BookSectionProps {
   books: BookItem[];
   title: string;
+  params: {
+    locale: string;
+  };
 }
 
-const BookSection: FC<BookSectionProps> = ({ books, title }) => {
+const BookSection: FC<BookSectionProps> = ({ books, title, params: { locale } }) => {
   const t = useI18n();
+
+  const chooseSectionType = useMemo(() => {
+    switch (title) {
+      case 'currentlyReading':
+        return SectionBookEnum.CURRENTLY_READING;
+      case 'readBooks':
+        return SectionBookEnum.READ_BOOKS;
+      case 'wantRead':
+        return SectionBookEnum.WANT_READ;
+      default:
+        return SectionBookEnum.CURRENTLY_READING;
+    };
+  }, [title]);
+
+  const transformedTitle = chooseSectionType;
 
   return (
     <Grid
       templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(2, 1fr)', md: 'repeat(9, 1fr)', lg: 'repeat(12, 1fr)' }}
       templateRows='repeat(50px, 1fr, 20px)'
       placeItems="center"
-      bg='blackAlpha.200'
+      bg='secondary.100'
       py="6"
       px="10"
       gap={6}
@@ -38,8 +59,8 @@ const BookSection: FC<BookSectionProps> = ({ books, title }) => {
         rowSpan={1}
         colSpan={{ base: 1, sm: 2, md: 9, lg: 12 }}
       >
-        <Heading size='md'>
-          { title }
+        <Heading as='h2' size='md' fontWeight='400'>
+          { t(`bookCard.${transformedTitle}`) }
         </Heading>
       </GridItem>
       {
@@ -57,14 +78,15 @@ const BookSection: FC<BookSectionProps> = ({ books, title }) => {
         colSpan={{ base: 1, sm: 2, md: 9, lg: 12 }}
         justifySelf="end"
       >
-        <Button
-          variant='link'
-          colorScheme='blackAlpha.900'
-          fontStyle="uppercase"
-          rightIcon={<ArrowForwardIcon />}
-        >
-          { t('bookCard.more') }
-        </Button>
+        <Link as={NextLink} href={`/${locale}/books/${transformedTitle}`}>
+          <Button
+            variant="link"
+            color="accent.orange"
+            rightIcon={<ArrowForwardIcon />}
+          >
+            { t('bookCard.more') }
+          </Button>
+        </Link>
       </GridItem>
     </Grid>
   );
