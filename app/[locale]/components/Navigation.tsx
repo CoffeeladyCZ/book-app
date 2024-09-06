@@ -13,22 +13,23 @@ export const Navigation = ({ locale }: { locale: string }) => {
       minWidth="max-content"
       alignContent="center"
       justifyContent="center"
-      p={4}  
-      gap="2"
+      py={4}
+      px="10"
+      gap="3"
     >
-      <Box p="2" alignItems="center">
-        <Heading size='lg'>{ t('title') }</Heading>
+      <Box p="2" alignItems="center" borderWidth='1px' borderColor='primary.200'>
+        <Heading size='lg' color='primary.200'>{ t('title') }</Heading>
       </Box>
       <ButtonGroup
         alignItems="center"
       >
         <Link href={`/${locale}/home`}>
-            <Button colorScheme="pink" mr={4} variant="ghost">
+            <Button variant='ghost' mr={4}>
               { t('navigation.home') }
             </Button>
         </Link>
         <Link href={`/${locale}/books`}>
-          <Button colorScheme="pink" mr={4} variant="ghost">
+          <Button mr={4} variant="ghost">
             { t('navigation.books') }
           </Button>
         </Link>

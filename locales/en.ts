@@ -6,8 +6,8 @@ export default {
     "readMore": "Read More"
   },
   "bookCard": {
-    "read": "Read books",
-    "more": "More books",
+    "readBooks": "Read books",
+    "more": "Show the whole shelf",
     "currentlyReading": "Currently reading",
     "wantRead": "Want to read",
   },
@@ -18,7 +18,7 @@ export default {
   "navigation": {
     "languageSwitcher": "Switch from <1>{{lng}}</1> to: ",
     "headTitle": "Book app",
-    "books": "My Books",
+    "books": "My Bookshelves",
     "home": "Home"
   },
   "common": {

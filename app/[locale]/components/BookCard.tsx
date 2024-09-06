@@ -27,7 +27,7 @@ import { useI18n } from "../../../locales/client";
           borderRadius='lg'
         />
         <Stack mt='6' spacing='3'>
-          <Heading size='md'>Testing book</Heading>
+          <Heading as='h2' size='md' fontWeight='500'>Testing book</Heading>
           <Text>
             This sofa is perfect for modern tropical spaces, baroque inspired
             spaces, earthy toned spaces and for people who love a chic design with a
@@ -38,7 +38,7 @@ import { useI18n } from "../../../locales/client";
       <Divider />
       <CardFooter>
         <ButtonGroup spacing='2'>
-          <Button variant='solid' colorScheme='blue'>
+          <Button variant='solid'>
             { t('book.readMore') }
           </Button>
         </ButtonGroup>

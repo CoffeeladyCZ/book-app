@@ -1,22 +1,26 @@
 import React from 'react';
 import { Grid, GridItem, Heading } from '@chakra-ui/react';
+
+import { getI18n } from '../../../../locales/server';
 import { setStaticParamsLocale } from 'next-international/server'
 
-import { getI18n } from '../../../locales/server';
-import { mockData } from '../../../mockData';
-
-import PageLayout from '../components/PageLayout';
-import BookSection from '../components/BookSection';
+import PageLayout from '../../components/PageLayout';
+import BookSectionList from '../../components/BookSectionList';
+import { mockData } from '../../../../mockData';
+import { kebabToCamelCase } from '../../../../utils/params';
 
 interface CommonLayoutProps {
   params: {
     locale: string;
+    section: string
   };
 }
 
-const Page: React.FC<CommonLayoutProps> = async ({ params: { locale } }) => {
+const Page: React.FC<CommonLayoutProps> = async ({ params: { locale, section } }) => {
   setStaticParamsLocale(locale)
   const t = await getI18n();
+
+  const transformedSection = kebabToCamelCase(section);
 
   return (
     <PageLayout params={{locale}}>
@@ -33,26 +37,15 @@ const Page: React.FC<CommonLayoutProps> = async ({ params: { locale } }) => {
           colSpan={{ base: 3, md: 8, lg: 11 }}
         >
           <Heading as='h1' size='xl' fontWeight='500' mb={4}>
-            { t('navigation.books') }
+          { t(`bookCard.${transformedSection}`) }
           </Heading>
         </GridItem>
+    
         <GridItem
           colSpan={{ base: 3, md: 9, lg: 12, '2xl': 10 }}
           rowSpan={{ base: 4, md: 3 }}
         >
-          <BookSection params={{locale}} books={mockData} title='readBooks' />
-        </GridItem>
-        <GridItem
-          colSpan={{ base: 3, md: 9, lg: 12, '2xl': 10 }}
-          rowSpan={{ base: 4, md: 3 }}
-        >
-          <BookSection params={{locale}} books={mockData} title='currentlyReading' />
-        </GridItem>
-        <GridItem
-          colSpan={{ base: 3, md: 9, lg: 12, '2xl': 10 }}
-          rowSpan={{ base: 4, md: 3 }}
-        >
-          <BookSection params={{locale}} books={mockData} title='wantRead' />
+          <BookSectionList books={mockData} />
         </GridItem>
       </Grid>
     </PageLayout>

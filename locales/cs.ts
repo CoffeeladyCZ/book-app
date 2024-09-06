@@ -6,7 +6,7 @@ export default {
     "readMore": "Číst více"
   },
   "bookCard": {
-    "read": "Přečtené knihy",
+    "readBooks": "Přečtené knihy",
     "more": "Více knih",
     "currentlyReading": "Momentálně čtu",
     "wantRead": "Chci si přečíst",
