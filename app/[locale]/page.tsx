@@ -1,9 +1,9 @@
-import NextLink from 'next/link';
 import PageLayout from "./components/PageLayout";
-import { getI18n, getCurrentLocale } from '../../locales/server';
-import { Box, Button, Flex, HStack, Heading, Link, Spacer } from '@chakra-ui/react';
+import { getI18n } from '../../locales/server';
+import { Box, Flex, HStack, Heading, Spacer } from '@chakra-ui/react';
 
 import { BookCard } from "./components/BookCard";
+import { useEffect, useState } from "react";
 
 interface PageProps {
   params: {
@@ -11,9 +11,18 @@ interface PageProps {
   }
 }
 
+interface Book {
+  id: string;
+  etag: string;
+  selfLink: string;
+  volumeInfo: {
+    title: string;
+    authors: string[];
+  };
+}
+
 const Page = async ({ params: { locale }}: PageProps) => {
   const t = await getI18n();
-  const currentLocale = getCurrentLocale();
 
   return (
     <PageLayout params={{locale}}>
@@ -22,17 +31,12 @@ const Page = async ({ params: { locale }}: PageProps) => {
           { t('home.title')}
         </Heading>
         <Spacer />
-        <Link as={NextLink} href={`/${locale}`}>
-          <Button variant="link" color="accent.orange">
-            { t('home.backToHome') }
-          </Button>
-        </Link>
       </Flex>
-      <Box px={6}>
-        <HStack spacing="24px">
-          <BookCard />
-        </HStack>
-      </Box>
+        <Box px={6}>
+          <HStack spacing="24px">
+            <BookCard />
+          </HStack>
+        </Box>
     </PageLayout>
   );
 }
