@@ -2,7 +2,7 @@ import PageLayout from "../components/PageLayout";
 import { getI18n } from '../../../locales/server';
 import { Box, Flex, HStack, Heading, Spacer } from '@chakra-ui/react';
 
-import { BookCard } from "../components/BookCard";
+import PopularBook from "../components/PopularBook";
 
 interface PageProps {
   params: {
@@ -22,7 +22,7 @@ const Page = async ({ params: { locale }}: PageProps) => {
       </Flex>
         <Box px={6}>
           <HStack spacing="24px">
-            <BookCard />
+            <PopularBook bgColor='primary.100' />
           </HStack>
         </Box>
     </PageLayout>

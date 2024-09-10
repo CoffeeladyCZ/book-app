@@ -3,7 +3,6 @@ import { getI18n } from '../../locales/server';
 import { Box, Flex, HStack, Heading, Spacer } from '@chakra-ui/react';
 
 import { BookCard } from "./components/BookCard";
-import { useEffect, useState } from "react";
 
 interface PageProps {
   params: {
@@ -21,7 +20,7 @@ interface Book {
   };
 }
 
-const Page = async ({ params: { locale }}: PageProps) => {
+const Page: React.FC<PageProps> = async ({ params: { locale }}) => {
   const t = await getI18n();
 
   return (
