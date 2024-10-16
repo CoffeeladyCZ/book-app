@@ -29,7 +29,6 @@ const PopularBookItem: React.FC<PopularBookItemProps> = ({ book }) => {
                 maxH='200px'
               />
             </Link>
-
           </Flex>
           <Stack>
             <CardBody py='0'>
