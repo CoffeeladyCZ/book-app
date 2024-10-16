@@ -3,7 +3,6 @@ import { getI18n } from '../../locales/server';
 import { Box, Flex, HStack, Heading, Spacer } from '@chakra-ui/react';
 
 import { BookCard } from "./components/BookCard";
-import React from "react";
 
 interface PageProps {
   params: {

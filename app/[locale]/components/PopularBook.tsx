@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { GridItem, Grid, Heading, Box } from "@chakra-ui/react";
 
-import type { PopularBooksNYTResponse } from "../../../types/global";
+import type { PopularBooksItem, PopularBooksResponse } from "../../../types/global";
 
 import PopularBookItem from "./PopularBookItem";
 
@@ -12,13 +12,12 @@ interface PopularBookProps {
 }
 
 const PopularBook: React.FC<PopularBookProps> = ({ bgColor }) => {
-  const [results, setResults] = useState<PopularBooksNYTResponse | null>(null);
+  const [results, setResults] = useState<PopularBooksResponse | null>(null);
 
   const fetchData = async () => {
     const listId = 704;
     const res = await fetch(`http://localhost:5000/api/popular-books?list_id=${listId}`);
-    const data: PopularBooksNYTResponse = await res.json();
-    setResults(data);
+    const data: PopularBooksResponse = await res.json();
   };
 
   useEffect(() => {

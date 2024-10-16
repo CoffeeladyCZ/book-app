@@ -1,12 +1,11 @@
 'use client';
 
-import { Card, Image, Flex, Text, Link, CardBody, Stack } from "@chakra-ui/react";
+import { Card, Image, Flex, Text, Link, Icon, CardBody, Stack } from "@chakra-ui/react";
 import { StarIcon } from '@chakra-ui/icons';
-import type { BookNYT } from "../../../types/global";
-import NextLink from 'next/link';
+import type { PopularBooksItem } from "../../../types/global";
 
 interface PopularBookItemProps {
-  book: BookNYT;
+  book: PopularBooksItem;
 }
 
 const PopularBookItem: React.FC<PopularBookItemProps> = ({ book }) => {
@@ -20,7 +19,7 @@ const PopularBookItem: React.FC<PopularBookItemProps> = ({ book }) => {
           boxShadow='none'
         >
           <Flex justify='center'>
-            <Link as={NextLink} href={`/books/detail/${book.id}`}>
+            <Link href={`/books/detail/${book.id}`}>
               <Image
                 src={book.bookImage}
                 alt=''
