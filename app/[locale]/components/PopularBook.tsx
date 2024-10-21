@@ -18,6 +18,7 @@ const PopularBook: React.FC<PopularBookProps> = ({ bgColor }) => {
     const listId = 704;
     const res = await fetch(`http://localhost:5000/api/popular-books?list_id=${listId}`);
     const data: PopularBooksResponse = await res.json();
+    setResults(data);
   };
 
   useEffect(() => {

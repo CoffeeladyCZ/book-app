@@ -9,7 +9,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'Missing query' }, { status: 400 });
   }
 
-  const API_KEY = process.env.GOOGLE_BOOKS_API_KEY;
+  const API_KEY = process.env.VITE_APP_GOOGLE_BOOKS_API_KEY;
   const apiUrl = `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${API_KEY}`;
 
   try {
