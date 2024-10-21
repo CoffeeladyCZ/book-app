@@ -5,16 +5,16 @@ import { useQuery } from '@tanstack/react-query';
 
 import type { PopularBooksResponse, PopularBooksItem } from '../../../../types/global';
 
-import PopularBookItem from './PopularBookItem';
+import { PopularBookItem } from './PopularBookItem';
 
 interface PopularBookProps {
   bgColor?: string;
 }
 
-const PopularBook: React.FC<PopularBookProps> = ({ bgColor }) => {
+export const PopularBook: React.FC<PopularBookProps> = ({ bgColor }) => {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   const fetchData = async () => {
     const listId = 704;
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
     const res = await fetch(`${apiUrl}/api/popular-books?list_id=${listId}`);
     const data: PopularBooksResponse = await res.json();
     return data;
@@ -66,5 +66,3 @@ const PopularBook: React.FC<PopularBookProps> = ({ bgColor }) => {
     </Box>
   );
 };
-
-export default PopularBook;

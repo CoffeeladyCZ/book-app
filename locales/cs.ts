@@ -11,6 +11,13 @@ export default {
     currentlyReading: 'Momentálně čtu',
     wantRead: 'Chci si přečíst',
   },
+  bookDetail: {
+    author: 'Autor: ',
+    publishedDate: 'Rok vydání: ',
+    publisher: 'Vydavatel: ',
+    pageCount: 'Počet stran: ',
+    description: 'Popis: ',
+  },
   home: {
     backToHome: 'Zpět na hlavní stránku',
     title: 'Home',
@@ -24,5 +31,9 @@ export default {
   common: {
     en: 'EN',
     cz: 'CZ',
+  },
+  error: {
+    notFoundBook: 'Kniha nebyla nalezena',
+    error: 'Nastala chyba při načítání dat',
   },
 } as const;
