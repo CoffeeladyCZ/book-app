@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import { GridItem, Grid, Heading, Box } from "@chakra-ui/react";
+import { GridItem, Grid, Heading, Box, Skeleton } from "@chakra-ui/react";
+import { useQuery  } from "@tanstack/react-query";
 
 import type { PopularBooksItem, PopularBooksResponse } from "../../../types/global";
 
@@ -12,17 +13,25 @@ interface PopularBookProps {
 }
 
 const PopularBook: React.FC<PopularBookProps> = ({ bgColor }) => {
-  const [results, setResults] = useState<PopularBooksResponse | null>(null);
 
   const fetchData = async () => {
     const listId = 704;
     const res = await fetch(`http://localhost:5000/api/popular-books?list_id=${listId}`);
     const data: PopularBooksResponse = await res.json();
+
+    return data;
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const { isLoading, error, data: books } = useQuery({
+    queryKey: ['popular-books', ],
+    queryFn: fetchData,
+  })
+
+  if (isLoading) return (
+  <div>
+    <Skeleton height="20px" />
+  </div>
+  )
 
   return (
     <Box position='relative' py='6'>
@@ -47,7 +56,7 @@ const PopularBook: React.FC<PopularBookProps> = ({ bgColor }) => {
             gap={6}
             columnGap={4}
           >
-            {results && 'books' in results && results.books
+            { books && books.books
               .map((book) => (
               <GridItem
                 key={book.id} 
