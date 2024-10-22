@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+
 import { Providers } from '../providers';
 import "./globals.css";
 import { I18nProviderClient } from "../../locales/client";
@@ -22,11 +23,11 @@ export default function RootLayout({
   return (
       <html lang={locale}>
         <body>
-          <I18nProviderClient locale={locale}>
-            <Providers>
+          <Providers>
+            <I18nProviderClient locale={locale}>
               {children}
-            </Providers>
-          </I18nProviderClient>
+            </I18nProviderClient>
+          </Providers>
         </body>
       </html>
   );

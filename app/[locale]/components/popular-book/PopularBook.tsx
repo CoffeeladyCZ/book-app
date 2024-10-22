@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useState } from "react";
-import { GridItem, Grid, Heading, Box } from "@chakra-ui/react";
+import { GridItem, Grid, Heading, Box, Skeleton } from "@chakra-ui/react";
+import { useQuery  } from "@tanstack/react-query";
 
 import type { PopularBooksResponse } from "../../../../types/global";
 
@@ -12,19 +12,25 @@ interface PopularBookProps {
 }
 
 const PopularBook: React.FC<PopularBookProps> = ({ bgColor }) => {
-  const [results, setResults] = useState<PopularBooksResponse | null>(null);
 
   const fetchData = async () => {
     const listId = 704;
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/popular-books?list_id=${listId}`);
     const data: PopularBooksResponse = await res.json();
-    setResults(data);
+
+    return data;
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const { isLoading, data: books } = useQuery({
+    queryKey: ['popular-books', ],
+    queryFn: fetchData,
+  })
+
+  if (isLoading) return (
+    <div>
+      <Skeleton height="20px" />
+    </div>
+  )
 
   return (
     <Box position='relative' py='6'>
@@ -35,13 +41,13 @@ const PopularBook: React.FC<PopularBookProps> = ({ bgColor }) => {
           bottom="0"
           left="50%"
           transform="translateX(-50%)"
-          width='80%'
+          width='90%'
           height='80%'
           zIndex={-1}
           py="10"
         />
         <Box py="6" px="10" zIndex={1}>
-          <Heading as='h3'  size='xl' fontWeight='300' py='6'>
+          <Heading as='h3'  size='xl' color='primary.500' fontWeight='300' py='6'>
             Most popular books
           </Heading>
           <Grid
@@ -49,8 +55,8 @@ const PopularBook: React.FC<PopularBookProps> = ({ bgColor }) => {
             gap={6}
             columnGap={4}
           >
-            {results && 'books' in results && results.books
-              .map((book) => (
+            { books && books.books
+              .map((book: PopularBooksItem) => (
               <GridItem
                 key={book.id} 
                 colSpan={{ base: 1}}
