@@ -1,6 +1,6 @@
 'use client';
 
-import { Card, Image, Flex, Text, Link, Icon, CardBody, Stack } from "@chakra-ui/react";
+import { Card, Image, Flex, Text, Link, CardBody, Stack } from "@chakra-ui/react";
 import { StarIcon } from '@chakra-ui/icons';
 import type { PopularBooksItem } from "../../../types/global";
 
