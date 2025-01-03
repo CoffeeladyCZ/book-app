@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/[lang]/layout.tsx", "app/[lang]/components/LanguageSwitcher/index.js", "app/[lang]/components/LanguageSwitcher/client.js", "middleware.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/[lang]/layout.tsx", "app/[lang]/components/LanguageSwitcher/index.js", "app/[lang]/components/LanguageSwitcher/client.js", "middleware.js", "app/api/error.js"],
   "exclude": ["node_modules"]
 }
