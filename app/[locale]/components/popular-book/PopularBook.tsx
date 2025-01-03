@@ -3,9 +3,9 @@
 import { useEffect, useState } from "react";
 import { GridItem, Grid, Heading, Box } from "@chakra-ui/react";
 
-import type { PopularBooksItem, PopularBooksResponse } from "../../../types/global";
+import type { PopularBooksResponse } from "../../../../types/global";
 
-import PopularBookItem from "./PopularBookItem";
+import PopularBookItem from "../popular-book/PopularBookItem";
 
 interface PopularBookProps {
   bgColor?: string;
@@ -16,8 +16,10 @@ const PopularBook: React.FC<PopularBookProps> = ({ bgColor }) => {
 
   const fetchData = async () => {
     const listId = 704;
-    const res = await fetch(`http://localhost:5000/api/popular-books?list_id=${listId}`);
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/popular-books?list_id=${listId}`);
     const data: PopularBooksResponse = await res.json();
+    setResults(data);
   };
 
   useEffect(() => {

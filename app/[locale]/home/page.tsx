@@ -2,7 +2,7 @@ import PageLayout from "../components/PageLayout";
 import { getI18n } from '../../../locales/server';
 import { Box, Flex, HStack, Heading, Spacer } from '@chakra-ui/react';
 
-import PopularBook from "../components/PopularBook";
+import PopularBook from "../components/popular-book/PopularBook";
 
 interface PageProps {
   params: {
