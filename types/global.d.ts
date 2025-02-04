@@ -118,7 +118,7 @@ export interface PopularBooksItem {
   contributorNote: string;
   description: string;
   bookImage: string;
-  id: number
+  id: number;
   price: number;
   primaryIsbn10: string;
   primaryIsbn13: string;

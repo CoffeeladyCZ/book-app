@@ -1,7 +1,7 @@
-import { FC, ReactNode } from "react";
-import { Box } from "@chakra-ui/react";
+import { FC, ReactNode } from 'react';
+import { Box } from '@chakra-ui/react';
 
-import { Navigation } from "./Navigation";
+import { Navigation } from './Navigation';
 
 interface PageLayoutProps {
   params: {
@@ -10,13 +10,13 @@ interface PageLayoutProps {
   children: ReactNode;
 }
 
-const PageLayout: FC<PageLayoutProps> = ({ params: { locale }, children}) => {
+const PageLayout: FC<PageLayoutProps> = ({ params: { locale }, children }) => {
   return (
     <Box position="relative" h="100vh" px={12}>
       <Navigation locale={locale} />
-      { children }
+      {children}
     </Box>
   );
-}
+};
 
 export default PageLayout;
