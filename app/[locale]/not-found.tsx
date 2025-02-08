@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
-import { Box, Heading, Text } from "@chakra-ui/react";
-import { Button } from "@chakra-ui/react";
-import { Link } from '@chakra-ui/next-js'
+import { Box, Heading, Text } from '@chakra-ui/react';
+import { Button } from '@chakra-ui/react';
+import { Link } from '@chakra-ui/next-js';
 
 const NotFoundPage = () => {
   return (

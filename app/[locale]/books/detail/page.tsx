@@ -1,6 +1,6 @@
-import { setStaticParamsLocale } from "next-international/server";
-import { getI18n } from "../../../../locales/server";
-import PageLayout from "../../components/PageLayout";
+import { setStaticParamsLocale } from 'next-international/server';
+import { getI18n } from '../../../../locales/server';
+import PageLayout from '../../components/PageLayout';
 
 interface PageProps {
   params: {
@@ -8,13 +8,13 @@ interface PageProps {
   };
 }
 
-const Page: React.FC<PageProps> = async ({ params: { locale }}) => {
-  setStaticParamsLocale(locale)
+const Page: React.FC<PageProps> = async ({ params: { locale } }) => {
+  setStaticParamsLocale(locale);
   const t = await getI18n();
 
   return (
     <PageLayout params={{ locale }}>
-      <h1>{ t('book.title') }</h1>
+      <h1>{t('book.title')}</h1>
     </PageLayout>
   );
 };
