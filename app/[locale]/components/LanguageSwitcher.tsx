@@ -8,7 +8,7 @@ const LanguageSwitch = () => {
   const locale = useCurrentLocale()
   return (
     <>
-      { locale === 'cz' ?
+      { locale === 'cs' ?
         (
           <Button
             type="button"
@@ -21,7 +21,7 @@ const LanguageSwitch = () => {
           <Button
             type="button"
             variant="link"
-            onClick={() => changeLocale('cz')}
+            onClick={() => changeLocale('cs')}
           >
             CZ
           </Button>

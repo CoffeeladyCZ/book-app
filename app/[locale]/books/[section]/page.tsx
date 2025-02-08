@@ -16,11 +16,13 @@ interface CommonLayoutProps {
   };
 }
 
+type bookCardSection = 'currentlyReading' | 'readBooks' | 'wantRead';
+
 const Page: React.FC<CommonLayoutProps> = async ({ params: { locale, section } }) => {
   setStaticParamsLocale(locale)
   const t = await getI18n();
 
-  const transformedSection = kebabToCamelCase(section);
+  const transformedSection = kebabToCamelCase(section) as bookCardSection;
 
   return (
     <PageLayout params={{locale}}>
@@ -37,7 +39,7 @@ const Page: React.FC<CommonLayoutProps> = async ({ params: { locale, section } }
           colSpan={{ base: 3, md: 8, lg: 11 }}
         >
           <Heading as='h1' size='xl' fontWeight='500' mb={4}>
-          { t(`bookCard.${transformedSection}`) }
+            {t(`bookCard.${transformedSection}`) || transformedSection}
           </Heading>
         </GridItem>
     
