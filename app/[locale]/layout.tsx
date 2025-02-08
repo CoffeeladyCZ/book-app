@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-import { Providers } from '../providers';
+import { Providers } from '../Providers';
 import "./globals.css";
-import { I18nProviderClient } from "../../locales/client";
+import { I18nProviderClient } from '../../locales/client';
 
 export const metadata: Metadata = {
   title: "Book App",

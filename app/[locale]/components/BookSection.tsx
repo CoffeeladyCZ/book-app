@@ -1,13 +1,12 @@
 'use client';
 
-import { FC, useMemo } from "react";
+import { FC } from "react";
 import { Button, Heading, Grid, GridItem, Link } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import NextLink from 'next/link';
 
 import { useI18n } from "../../../locales/client";
 import BookSectionCard from "./BookSectionCard";
-import { transformTitle } from '../../../utils/params';
 import { SectionBookEnum } from '../../../enums';
 
 interface BookItem {
@@ -25,23 +24,25 @@ interface BookSectionProps {
   };
 }
 
+const SECTION_MAP = {
+  'currentlyReading': {
+    enum: SectionBookEnum.CURRENTLY_READING,
+    translation: 'bookCard.currentlyReading'
+  },
+  'readBooks': {
+    enum: SectionBookEnum.READ_BOOKS,
+    translation: 'bookCard.readBooks'
+  },
+  'wantRead': {
+    enum: SectionBookEnum.WANT_READ,
+    translation: 'bookCard.wantRead'
+  }
+} as const;
+
 const BookSection: FC<BookSectionProps> = ({ books, title, params: { locale } }) => {
   const t = useI18n();
-
-  const chooseSectionType = useMemo(() => {
-    switch (title) {
-      case 'currentlyReading':
-        return SectionBookEnum.CURRENTLY_READING;
-      case 'readBooks':
-        return SectionBookEnum.READ_BOOKS;
-      case 'wantRead':
-        return SectionBookEnum.WANT_READ;
-      default:
-        return SectionBookEnum.CURRENTLY_READING;
-    };
-  }, [title]);
-
-  const transformedTitle = chooseSectionType;
+  
+  const section = SECTION_MAP[title as keyof typeof SECTION_MAP] ?? SECTION_MAP.currentlyReading;
 
   return (
     <Grid
@@ -60,7 +61,7 @@ const BookSection: FC<BookSectionProps> = ({ books, title, params: { locale } })
         colSpan={{ base: 1, sm: 2, md: 9, lg: 12 }}
       >
         <Heading as='h2' size='md' fontWeight='400'>
-          { t(`bookCard.${transformedTitle}`) }
+          {t(section.translation)}
         </Heading>
       </GridItem>
       {
@@ -78,13 +79,13 @@ const BookSection: FC<BookSectionProps> = ({ books, title, params: { locale } })
         colSpan={{ base: 1, sm: 2, md: 9, lg: 12 }}
         justifySelf="end"
       >
-        <Link as={NextLink} href={`/${locale}/books/${transformedTitle}`}>
+        <Link as={NextLink} href={`/${locale}/books/${section.enum}`}>
           <Button
             variant="link"
             color="accent.orange"
             rightIcon={<ArrowForwardIcon />}
           >
-            { t('bookCard.more') }
+            {t('bookCard.more')}
           </Button>
         </Link>
       </GridItem>

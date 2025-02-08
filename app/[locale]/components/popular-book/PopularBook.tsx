@@ -3,9 +3,9 @@
 import { GridItem, Grid, Heading, Box, Skeleton } from "@chakra-ui/react";
 import { useQuery  } from "@tanstack/react-query";
 
-import type { PopularBooksResponse } from "../../../../types/global";
+import type { PopularBooksResponse, PopularBooksItem } from "../../../../types/global";
 
-import PopularBookItem from "../popular-book/PopularBookItem";
+import PopularBookItem from "./PopularBookItem";
 
 interface PopularBookProps {
   bgColor?: string;
