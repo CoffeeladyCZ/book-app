@@ -1,8 +1,7 @@
 'use client';
 
 import { FC } from "react";
-import { Card, Image, Text, Flex, Link, Grid, GridItem } from "@chakra-ui/react";
-import { useI18n } from "../../../locales/client";
+import { Grid, GridItem } from "@chakra-ui/react";
 
 import BookSectionCard from "./BookSectionCard";
 
@@ -18,7 +17,6 @@ interface BookSectionProps {
 }
 
 const BookSectionList: FC<BookSectionProps> = ({ books }) => {
-  const t = useI18n();
   return (
     <Grid
       templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(2, 1fr)', md: 'repeat(9, 1fr)', lg: 'repeat(12, 1fr)' }}

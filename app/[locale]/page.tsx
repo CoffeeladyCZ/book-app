@@ -11,16 +11,6 @@ interface PageProps {
   }
 }
 
-interface Book {
-  id: string;
-  etag: string;
-  selfLink: string;
-  volumeInfo: {
-    title: string;
-    authors: string[];
-  };
-}
-
 const Page: React.FC<PageProps> = async ({ params: { locale }}) => {
   const t = await getI18n();
 

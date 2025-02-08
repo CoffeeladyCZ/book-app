@@ -19,7 +19,7 @@ const PopularBookItem: React.FC<PopularBookItemProps> = ({ book }) => {
           boxShadow='none'
         >
           <Flex justify='center'>
-            <Link href={`/books/detail/${book.id}`}>
+            <Link href={`/books/detail/${book.primaryIsbn10}`}>
               <Image
                 src={book.bookImage}
                 alt=''
