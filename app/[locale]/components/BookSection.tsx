@@ -60,7 +60,7 @@ const BookSection: FC<BookSectionProps> = ({ books, title, params: { locale } })
         colSpan={{ base: 1, sm: 2, md: 9, lg: 12 }}
       >
         <Heading as='h2' size='md' fontWeight='400'>
-          { t(`bookCard.${transformedTitle}`) }
+          { t(`bookCard.${transformedTitle}`) || transformedTitle }
         </Heading>
       </GridItem>
       {
@@ -84,7 +84,7 @@ const BookSection: FC<BookSectionProps> = ({ books, title, params: { locale } })
             color="accent.orange"
             rightIcon={<ArrowForwardIcon />}
           >
-            { t('bookCard.more') }
+            {t('bookCard.more', {})}
           </Button>
         </Link>
       </GridItem>
