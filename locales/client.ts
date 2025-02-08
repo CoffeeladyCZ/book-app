@@ -14,7 +14,7 @@ export const {
       await new Promise(resolve => setTimeout(resolve, 100));
       return import('./en');
     },
-    cz: async () => {
+    cs: async () => {
       await new Promise(resolve => setTimeout(resolve, 100));
       return import('./cs');
     },
