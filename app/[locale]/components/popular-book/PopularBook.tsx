@@ -14,11 +14,9 @@ interface PopularBookProps {
 const PopularBook: React.FC<PopularBookProps> = ({ bgColor }) => {
   const fetchData = async () => {
     const listId = 704;
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/popular-books?list_id=${listId}`
-    );
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+    const res = await fetch(`${apiUrl}/api/popular-books?list_id=${listId}`);
     const data: PopularBooksResponse = await res.json();
-
     return data;
   };
 
