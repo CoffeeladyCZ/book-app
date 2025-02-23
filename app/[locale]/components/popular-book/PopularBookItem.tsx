@@ -8,7 +8,7 @@ interface PopularBookItemProps {
   book: PopularBooksItem;
 }
 
-const PopularBookItem: React.FC<PopularBookItemProps> = ({ book }) => {
+export const PopularBookItem: React.FC<PopularBookItemProps> = ({ book }) => {
   return (
     <>
       {book && (
@@ -47,5 +47,3 @@ const PopularBookItem: React.FC<PopularBookItemProps> = ({ book }) => {
     </>
   );
 };
-
-export default PopularBookItem;

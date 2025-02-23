@@ -19,7 +19,7 @@ const Page: React.FC<CommonLayoutProps> = async ({ params: { locale, isbn } }) =
   const t = await getI18n();
 
   const fetchData = async () => {
-    // Použijeme process.env.VERCEL_URL pro produkci nebo localhost pro vývoj
+    console.log(`fetch`);
     const baseUrl = process.env.VERCEL_URL
       ? `https://${process.env.VERCEL_URL}`
       : 'http://localhost:3000';
@@ -48,6 +48,7 @@ const Page: React.FC<CommonLayoutProps> = async ({ params: { locale, isbn } }) =
 
   try {
     const bookDetail = await fetchData();
+    console.log('test', bookDetail);
 
     if (!bookDetail || !bookDetail.items || bookDetail.items.length === 0) {
       return (

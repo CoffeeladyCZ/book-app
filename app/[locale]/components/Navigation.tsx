@@ -17,17 +17,14 @@ export const Navigation = ({ locale }: { locale: string }) => {
       px="10"
       gap="3"
     >
-      <Box p="2" alignItems="center" borderWidth="1px" borderColor="primary.200">
-        <Heading size="lg" color="primary.200">
-          {t('title')}
-        </Heading>
-      </Box>
-      <ButtonGroup alignItems="center">
-        <Link href={`/${locale}/home`}>
-          <Button variant="ghost" mr={4}>
-            {t('navigation.home')}
+      <Box p="2" alignItems="center">
+        <Link href={`/${locale}`}>
+          <Button size="lg" variant="outline" color="primary.200" borderColor="primary.200">
+            {t('title')}
           </Button>
         </Link>
+      </Box>
+      <ButtonGroup alignItems="center">
         <Link href={`/${locale}/books`}>
           <Button mr={4} variant="ghost">
             {t('navigation.books')}
