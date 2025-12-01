@@ -11,7 +11,7 @@ import {
   Text,
   Image,
 } from '@chakra-ui/react';
-import { Button } from "@/components/ui/button"
+import { Button } from '@/components/ui/button';
 
 import { useI18n } from '../../../locales/client';
 import { useEffect, useState } from 'react';
