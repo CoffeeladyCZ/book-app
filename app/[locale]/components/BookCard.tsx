@@ -1,7 +1,6 @@
 'use client';
 
 import {
-  Button,
   ButtonGroup,
   Card,
   CardBody,
@@ -12,6 +11,7 @@ import {
   Text,
   Image,
 } from '@chakra-ui/react';
+import { Button } from "@/components/ui/button"
 
 import { useI18n } from '../../../locales/client';
 import { useEffect, useState } from 'react';
@@ -74,7 +74,7 @@ export const BookCard = () => {
             <Divider />
             <CardFooter>
               <ButtonGroup spacing="2">
-                <Button variant="solid">{t('book.readMore')}</Button>
+                <Button>{t('book.readMore')}</Button>
               </ButtonGroup>
             </CardFooter>
           </Card>

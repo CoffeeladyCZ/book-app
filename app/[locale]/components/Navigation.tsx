@@ -1,6 +1,6 @@
 'use client';
 
-import { Flex, Button, Link, Box, Heading, Spacer, ButtonGroup, Avatar } from '@chakra-ui/react';
+import { Flex, Button, Link, Box, Spacer, ButtonGroup, Avatar } from '@chakra-ui/react';
 
 import LanguageSwitcher from './LanguageSwitcher';
 import { useI18n } from '../../../locales/client';

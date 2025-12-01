@@ -109,10 +109,10 @@ const BookDetail: React.FC<BookDetailProps> = ({ initialData, isbn }) => {
           <GridItem rowStart={1} rowSpan={1} colSpan={1} colStart={3}>
             {book.categories?.map((category) => <Badge key={category}>{category}</Badge>)}
           </GridItem>
-          <GridItem rowStart={2} rowSpan={1} colSpan={3}>
-            <Text fontSize="xl" fontWeight="300" color="primary.500">
+          <GridItem rowStart={2} rowSpan={1} colSpan={3} className="text-black">
+            <Text fontSize="xl" fontWeight="300">
               {t('bookDetail.description')}
-            </Text>{' '}
+            </Text>
             {book.description}
           </GridItem>
 
