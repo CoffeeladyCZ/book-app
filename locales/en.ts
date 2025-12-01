@@ -11,6 +11,13 @@ export default {
     currentlyReading: 'Currently reading',
     wantRead: 'Want to read',
   },
+  bookDetail: {
+    author: 'Author: ',
+    publishedDate: 'Published date: ',
+    publisher: 'Publisher: ',
+    pageCount: 'Page count: ',
+    description: 'Description: ',
+  },
   home: {
     backToHome: 'Back to Home',
     title: 'Home',
@@ -24,5 +31,9 @@ export default {
   common: {
     en: 'EN',
     cz: 'CZ',
+  },
+  error: {
+    notFoundBook: 'Book not found',
+    error: 'An error occurred while loading data',
   },
 } as const;

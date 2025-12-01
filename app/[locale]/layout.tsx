@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 
 import { Providers } from '../Providers';
 import './globals.css';
+import '../styles/global.css';
 import { I18nProviderClient } from '../../locales/client';
 
 export const metadata: Metadata = {

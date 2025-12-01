@@ -47,14 +47,14 @@ const customTheme = extendTheme({
             transform: 'scale(0.98)',
           },
         }),
-        outline: (props: { colorMode: 'light' | 'dark' }) => ({
-          borderColor: props.colorMode === 'dark' ? 'primary.200' : 'accent.orange',
-          color: props.colorMode === 'dark' ? 'white' : 'white',
+        outline: () => ({
+          borderWidth: '1px',
+          borderRadius: '0',
           _hover: {
-            bg: props.colorMode === 'dark' ? 'primary.100' : 'primary.100',
+            borderWidth: '1px',
+            borderRadius: '0',
           },
           _active: {
-            bg: props.colorMode === 'dark' ? 'primary.100' : 'primary.100',
             transform: 'scale(0.98)',
           },
         }),

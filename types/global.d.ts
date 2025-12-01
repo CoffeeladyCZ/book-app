@@ -108,7 +108,7 @@ export interface Book {
 }
 
 export interface BooksResponse {
-  items: Book[];
+  items: GoogleBookItem[];
 }
 
 export interface PopularBooksItem {

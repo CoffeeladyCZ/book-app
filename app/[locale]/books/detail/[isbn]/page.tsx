@@ -19,7 +19,6 @@ const Page: React.FC<CommonLayoutProps> = async ({ params: { locale, isbn } }) =
   const t = await getI18n();
 
   const fetchData = async () => {
-    // Použijeme process.env.VERCEL_URL pro produkci nebo localhost pro vývoj
     const baseUrl = process.env.VERCEL_URL
       ? `https://${process.env.VERCEL_URL}`
       : 'http://localhost:3000';
@@ -48,7 +47,6 @@ const Page: React.FC<CommonLayoutProps> = async ({ params: { locale, isbn } }) =
 
   try {
     const bookDetail = await fetchData();
-
     if (!bookDetail || !bookDetail.items || bookDetail.items.length === 0) {
       return (
         <PageLayout params={{ locale }}>
@@ -63,7 +61,6 @@ const Page: React.FC<CommonLayoutProps> = async ({ params: { locale, isbn } }) =
       </PageLayout>
     );
   } catch (error) {
-    console.error('Error in page component:', error);
     return (
       <PageLayout params={{ locale }}>
         <div>Nepodařilo se načíst detail knihy. Zkuste to prosím později.</div>
